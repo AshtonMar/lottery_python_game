@@ -23,11 +23,14 @@ def entry_validation():
     else:
         print("everything is fine")
 
+
 def valid_email(email_entry):
-    email_verification = email_entry.strip().lower()
-    if "@" not in email_verification:
+    if "@" not in email_entry.get():
         messagebox.showinfo("Proper Email", "Enter Valid Email")
-    elif:
+    elif ".com" not in email_entry.get():
+        messagebox.showinfo("Proper Email", "Enter Valid Email")
+    else:
+        print("Its Valid")
 
 
 #   The age validation function that checks if the user is eligible to play.

@@ -6,7 +6,7 @@ from tkinter.ttk import Combobox
 #   The Creation of the tkinter window.
 window = Tk()
 window.geometry("350x320")
-window.title("Is It Your Lucky Day?")
+window.title("It's Your Lucky Day!")
 window.resizable(False, False)
 
 
@@ -32,7 +32,6 @@ banks = Combobox(window, width=12)
 banks.place(x=180, y=50)
 
 banks["values"] = "Nedbank", "ABSA", "Capitec", "FNB"
-
 
 #   The Buttons to be used in this window.
 frame = LabelFrame(window, width=300, height=100)

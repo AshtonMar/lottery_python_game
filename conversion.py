@@ -4,7 +4,7 @@ from tkinter import messagebox
 
 
 window = Tk()
-window.geometry("390x300")
+window.geometry("390x350")
 window.title("Exchange Your Rate")
 window.resizable(False, False)
 
@@ -26,9 +26,10 @@ def clear():
 
 #  The exiting function.
 def exit_window():
-    msg = messagebox.askquestion("You Sure?", "You want to leave the program?")
+    msg = messagebox.askquestion("You Sure?", "You want to return to bank details?")
     if msg == "yes":
         window.destroy()
+        import bank_details
     else:
         print("You Returned")
 
@@ -52,13 +53,13 @@ from_currency_entry = Entry(window, width=10)
 from_currency_entry.place(x=220, y=40)
 
 result_lb = Label(window, text="")
-result_lb.place(x=150, y=130)
+result_lb.place(x=180, y=170)
 
-clear_btn = Button(window, text="/ Clear /", width=15, command=clear)
-clear_btn.place(x=130, y=200)
 change_btn = Button(window, text="/ Change /", width=15, command=info)
-change_btn.place(x=130, y=150)
-exit_button = Button(window, text="/ Exit /", width=20, command=exit_window)
-exit_button.place(x=110, y=250)
+change_btn.place(x=130, y=200)
+clear_btn = Button(window, text="/ Clear /", width=15, command=clear)
+clear_btn.place(x=130, y=250)
+return_button = Button(window, text="/ Return /", width=20, command=exit_window)
+return_button.place(x=110, y=300)
 
 window.mainloop()

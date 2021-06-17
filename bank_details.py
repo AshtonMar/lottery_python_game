@@ -1,13 +1,37 @@
 #   Ashton Martin Class-1.
 #   importing the tkinter module.
+import smtplib, ssl
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from tkinter import *
 from tkinter.ttk import Combobox
+from tkinter import messagebox
 
 #   The Creation of the tkinter window.
 window = Tk()
 window.geometry("350x320")
 window.title("It's Your Lucky Day!")
 window.resizable(False, False)
+
+
+def send_email():
+    sender_email = "ashtonmartingoliath@gmail.com"
+    receiver_email = []
+
+
+def clear():
+    account_holder_entry.delete(0, END)
+    bank_number_entry.delete(0, END)
+    banks.delete(0, END)
+
+
+def exit_program():
+    msg = messagebox.askquestion("YOU SURE?", "You Are Exiting The Program!")
+    if msg == "yes":
+        messagebox.showinfo("Thank You", "Thank You For Using The Application")
+        window.destroy()
+    else:
+        print("You Returned")
 
 
 #   The Information to get the game started and validate the player
@@ -42,11 +66,11 @@ send_btn = Button(frame, text="Send", width=10)
 send_btn.place(x=20, y=10)
 
 #   The button to clear all the entries.
-clear_btn = Button(frame, text="Clear", width=10)
+clear_btn = Button(frame, text="Clear", width=10, command=clear)
 clear_btn.place(x=170, y=10)
 
 #   The button to exit the program.
-exit_btn = Button(frame, text="Exit Program", width=20)
+exit_btn = Button(frame, text="Exit Program", width=20, command=exit_program)
 exit_btn.place(x=60, y=60)
 
 window.mainloop()

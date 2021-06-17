@@ -19,7 +19,7 @@ def info():
 #  The clearing function.
 def clear():
     from_currency_entry.delete(0, END)
-    to_currency_entry.delete(0,END)
+    to_currency_entry.delete(0, END)
     amount_entry.delete(0, END)
     result_lb.config(text="")
 

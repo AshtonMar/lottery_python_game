@@ -44,10 +44,11 @@ def age_valid():
                     "date_of_birth": age}
             text_to_file(info)
             messagebox.showinfo("You Are Valid", "You are of age young squire!")
+            messagebox.showinfo("Rules", "You Need To enter 6 numbers between 1 and 49 and with no duplicates.")
             window.destroy()
             import play
         else:
-            messagebox.showinfo("You not Valid", "Wait " + str(years_left) + " more years")
+            messagebox.showinfo("You Are Too Young!", "Wait " + str(years_left) + " more years")
     except ValueError:
         messagebox.showerror("Error!", "Something Went Wrong!")
 
@@ -73,6 +74,7 @@ def leave():
     msg = messagebox.askquestion("YOU SURE?" "You Are Exiting The Program!")
     if msg == "yes":
         messagebox.showinfo("Thank You", "Thank You For Using The Application")
+        window.destroy()
     else:
         print("You Returned")
 

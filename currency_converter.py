@@ -39,20 +39,20 @@ heading.place(x=125, y=10)
 
 amount_lb = Label(window, text="Enter Amount : ")
 amount_lb.place(x=50, y=80)
-amount_entry = Entry(window, width=10)
+amount_entry = Entry(window, width=10, justify="center")
 amount_entry.place(x=220, y=80)
 
 to_currency_lb = Label(window, text="To Currency(e.g ZAR):")
 to_currency_lb.place(x=50, y=120)
-to_currency_entry = Entry(window, width=10)
+to_currency_entry = Entry(window, width=10, justify="center")
 to_currency_entry.place(x=220, y=120)
 
 from_currency_lb = Label(window, text="From Currency(e.g ZAR):")
 from_currency_lb.place(x=50, y=40)
-from_currency_entry = Entry(window, width=10)
+from_currency_entry = Entry(window, width=10, justify="center")
 from_currency_entry.place(x=220, y=40)
 
-result_lb = Label(window, text="")
+result_lb = Label(window, text="", justify="center")
 result_lb.place(x=180, y=170)
 
 change_btn = Button(window, text="/ Change /", width=15, command=info)

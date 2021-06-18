@@ -1,8 +1,11 @@
 #   Ashton Martin Class-1.
 #   importing the tkinter module.
-import smtplib, ssl
+import json
+import smtplib
+import ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import getpass
 from tkinter import *
 from tkinter.ttk import Combobox
 from tkinter import messagebox
@@ -15,8 +18,28 @@ window.resizable(False, False)
 
 
 def send_email():
+    with open("lotto_info.txt", "r", encoding="utf-8-sig", errors="ignore")as file:
+        info_object = json.load(file, strict=False)
+        name = info_object["name"]
+        print(name)
     sender_email = "ashtonmartingoliath@gmail.com"
-    receiver_email = []
+    receiver_email = info_object["email"]
+    print(receiver_email)
+    password = input("Password: ")
+
+    message = MIMEMultipart("alternative")
+    message["Subject"] = "Lotto Winner"
+    message["From"] = sender_email
+    message["To"] = ", ".join(receiver_email)
+
+    email_message = "Hi" + info_object["name"] +"you have won" + "R10" +"it will be transferred to your bank account" + "10"+"\n" + "\n" + \
+                    "Thanks for playing"
+    text = MIMEText(email_message)
+    message.attach(text)
+    context = ssl.create_default_context()
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
+        server.login(sender_email, password)
+        server.sendmail(sender_email, receiver_email, message.as_string())
 
 
 def clear():
@@ -62,7 +85,7 @@ frame = LabelFrame(window, width=300, height=100)
 frame.place(x=20, y=200)
 #
 #   The button to validate all the information in the entries and to see if the user is eligible to play.
-send_btn = Button(frame, text="Send", width=10)
+send_btn = Button(frame, text="Send", width=10, command=send_email)
 send_btn.place(x=20, y=10)
 
 #   The button to clear all the entries.

@@ -25,6 +25,8 @@ def play_game():
     players_nums = {int(number_1.get()), int(number_2.get()), int(number_3.get()), int(number_4.get()),
                     int(number_5.get()), int(number_6.get())}
 
+    # players_nums_2 = {}
+
     check = lotto_nums.intersection(players_nums)
 
     amount = len(check)
@@ -35,7 +37,7 @@ def play_game():
                                          + "You Want To Convert From ZAR To Another Currency")
             if msg == "yes":
                 window.destroy()
-                import conversion
+                import currency_converter
             else:
                 window.destroy()
                 import bank_details
@@ -45,7 +47,7 @@ def play_game():
                                          + "You Want To Convert From ZAR To Another Currency")
             if msg == "yes":
                 window.destroy()
-                import conversion
+                import currency_converter
             else:
                 window.destroy()
                 import bank_details
@@ -55,7 +57,7 @@ def play_game():
                                          + "You Want To Convert From ZAR To Another Currency")
             if msg == "yes":
                 window.destroy()
-                import conversion
+                import currency_converter
             else:
                 window.destroy()
                 import bank_details
@@ -65,7 +67,7 @@ def play_game():
                                          + "You Want To Convert From ZAR To Another Currency")
             if msg == "yes":
                 window.destroy()
-                import conversion
+                import currency_converter
             else:
                 window.destroy()
                 import bank_details
@@ -94,6 +96,13 @@ def play_game():
         messagebox.showerror("Error!", "Something Went Wrong")
 
 
+def text_to_file(added_obj):
+    import json
+    added_obj = json.dumps(added_obj)
+    with open("lotto_info.txt", "a+") as lotto_info:
+        lotto_info.write(added_obj)
+
+
 def rule_book():
     messagebox.showinfo("Rules", "You Need To enter 6 numbers between 1 and 49 and with no duplicates.")
 
@@ -115,22 +124,22 @@ head.place(x=105, y=10)
 lotto_numbers = Label(window, text="Your Numbers")
 lotto_numbers.place(x=120, y=30)
 
-number_1 = Entry(window, width=3)
+number_1 = Entry(window, width=3, justify="center")
 number_1.place(x=30, y=60)
 
-number_2 = Entry(window, width=3)
+number_2 = Entry(window, width=3, justify="center")
 number_2.place(x=80, y=60)
 
-number_3 = Entry(window, width=3)
+number_3 = Entry(window, width=3, justify="center")
 number_3.place(x=130, y=60)
 
-number_4 = Entry(window, width=3)
+number_4 = Entry(window, width=3, justify="center")
 number_4.place(x=180, y=60)
 
-number_5 = Entry(window, width=3)
+number_5 = Entry(window, width=3, justify="center")
 number_5.place(x=230, y=60)
 
-number_6 = Entry(window, width=3)
+number_6 = Entry(window, width=3, justify="center")
 number_6.place(x=280, y=60)
 
 
@@ -143,19 +152,19 @@ random_1.place(x=30, y=130)
 random_2 = Entry(window, width=3, justify="center")
 random_2.place(x=80, y=130)
 
-random_3 = Entry(window, width=3, )
+random_3 = Entry(window, width=3, justify="center")
 random_3.place(x=130, y=130)
 
-random_4 = Entry(window, width=3)
+random_4 = Entry(window, width=3, justify="center")
 random_4.place(x=180, y=130)
 
-random_5 = Entry(window, width=3)
+random_5 = Entry(window, width=3, justify="center")
 random_5.place(x=230, y=130)
 
-random_6 = Entry(window, width=3)
+random_6 = Entry(window, width=3, justify="center")
 random_6.place(x=280, y=130)
 
-result_lbl = Label(window, text="")
+result_lbl = Label(window, text="", justify="center")
 result_lbl.place(x=150, y=190)
 
 

@@ -166,7 +166,7 @@ def read_key_value_pairs():
 #   Function to add the info on this window to the text file.
 def text_to_file(adding_obj):
     adding_obj = json.dumps(adding_obj)
-    with open("lotto_info.txt", "a+") as lotto_info:
+    with open("lotto_info.txt", "w") as lotto_info:
         lotto_info.write(adding_obj)
 
 
